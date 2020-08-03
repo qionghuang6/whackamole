@@ -80,3 +80,11 @@ h3{
     cursor: pointer;
 }
 
+.gameover{
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'Rowdies', cursive;
+    margin: 0;
+    padding: 0
+}
+

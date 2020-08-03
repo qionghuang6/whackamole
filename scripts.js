@@ -16,8 +16,8 @@ let gameScore = 0;
 class tonyMole {
     constructor(){
         this.imageSrc = tonyPics[Math.floor(Math.random() * tonyPics.length)];
-        this.xPos = Math.floor((0.1 + 0.8 * Math.random()) * width);
-        this.yPos = Math.floor((0.1 + 0.8* Math.random()) * height);
+        this.xPos = Math.floor((0.05 + 0.8 * Math.random()) * width);
+        this.yPos = Math.floor((0.05 + 0.7* Math.random()) * height);
         this.imgElement = document.createElement("img");
         this.imgElement.src = this.imageSrc;
         this.imgElement.className = "mole";
@@ -27,7 +27,6 @@ class tonyMole {
         this.imgElement.style.right = this.xPos + "px";
         this.imgElement.style.top = this.yPos + "px";
         this.imgElement.onclick = this.gotWhacked;
-        console.log(typeof(this.imgElement));
     }
     display = () => {
         body.appendChild(this.imgElement);
@@ -44,22 +43,37 @@ class tonyMole {
 //starts game timer
 const startGame = () => {
     startButton.remove();
-    firstTony.remove();
-    let dateObj = new Date();
+    firstTony.style.display = "none";
+    dateObj = new Date();
     startTime = dateObj.getTime()
     timerInt = setInterval(() => {
         updateTime(startTime);
+        spawnMole(true);
     }, 1000);
     scoreUpdateInt = setInterval(() => {
         score.innerHTML = gameScore;
+        spawnMole(false);
     }, 50)
+}
+
+//decides whether to spawn more moles based on both time and number of moles on screen
+const spawnMole = (isASecond) =>{
+    let currentMoles = document.querySelectorAll(".mole").length;
+    if(isASecond || currentMoles < 1){
+        let newMole = new tonyMole;
+        newMole.display();
+    }
 }
 
 //ends the game by stopping the timer
 const endGame = () => {
     clearInterval(timerInt);
     clearInterval(scoreUpdateInt);
-    document.querySelectorAll(".mole").forEach(tony => tony.delete());
+    document.querySelectorAll(".mole").forEach(tony => tony.remove());
+    const gameOver = document.querySelector(".gameover")
+    gameOver.removeAttribute("hidden");
+    gameOver.innerHTML = "Game Over! Score: " + gameScore;
+    firstTony.style.display = "block";
 }
 
 //updates time inside Timer
@@ -71,8 +85,6 @@ const updateTime = (startTime) => {
     if (timeLeft < 1){
         endGame()
     }
-    let newMole = new tonyMole;
-    newMole.display();
 }
 
 startButton.onclick = startGame;
