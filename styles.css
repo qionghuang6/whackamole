@@ -74,8 +74,9 @@ h3{
     box-shadow:5px 5px;
 }
 
-#tonymole{
+.mole{
     width: 10%;
+    position: absolute;
     cursor: pointer;
-    box-shadow: 3px 3px hotpink;
 }
+
