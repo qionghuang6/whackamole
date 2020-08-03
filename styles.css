@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: #f2ba42;
     font-family: 'Gloria Hallelujah', cursive;
 }
 
@@ -7,7 +7,7 @@ h1 {
     display: inline-block;
     text-align: center;
     font-family: 'Permanent Marker', cursive;
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin: 0 auto;
     padding: 0 auto;
 }
@@ -24,6 +24,7 @@ footer{
     display: flex;
     flex-direction: row;
     margin: auto;
+    margin-bottom: 1rem;
     width: 75%;
     justify-content: space-around;
 }
@@ -35,13 +36,39 @@ footer{
     text-align: center;
     width: 8rem;
     border-radius: 1rem;
+    box-shadow: 3px 3px;
 }
 
 h2{
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 0.5rem;
 }
 
 h3{
     line-height: 0.5rem;
+}
+
+#maintony{
+    display: block;
+    max-width: 22.5%;
+    margin: auto
+}
+
+#moh{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#startbutton{
+    display:block;
+    margin:auto;
+    margin-top: 1rem;
+    padding: 0 5rem;
+    background-color: pink;
+    font-size: 6rem;
+    border-radius: 2rem;
+    border-width: 0;
+    box-shadow:5px 5px;
 }
