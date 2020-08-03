@@ -70,5 +70,12 @@ h3{
     font-size: 6rem;
     border-radius: 2rem;
     border-width: 0;
+    cursor: pointer;
     box-shadow:5px 5px;
+}
+
+#tonymole{
+    width: 10%;
+    cursor: pointer;
+    box-shadow: 3px 3px hotpink;
 }
